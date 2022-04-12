@@ -1,14 +1,3 @@
-if LEGENDSOPREACH_LOADED and not _G.LEGENDSOPREACH_DEBUG == true then
-	    	game.StarterGui:SetCore("SendNotification", {
-        	Title = "Legend's OP Reach";
-        	Text = "Already Loaded!";
-        	Icon = "";
-        Duration = 5;})
-	return
-end
-
-pcall(function() getgenv().LEGENDSOPREACH_LOADED = true end)
-
 local LegendsOPReach = Instance.new("ScreenGui")
 local backgroundholderidk = Instance.new("Frame")
 local title = Instance.new("TextLabel")
