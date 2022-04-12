@@ -1,0 +1,391 @@
+if LEGENDSOPREACH_LOADED and not _G.LEGENDSOPREACH_DEBUG == true then
+	    	game.StarterGui:SetCore("SendNotification", {
+        	Title = "Legend's OP Reach";
+        	Text = "Already Loaded!";
+        	Icon = "";
+        Duration = 5;})
+	return
+end
+
+pcall(function() getgenv().LEGENDSOPREACH_LOADED = true end)
+
+local LegendsOPReach = Instance.new("ScreenGui")
+local backgroundholderidk = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local title2 = Instance.new("TextLabel")
+local size = Instance.new("TextBox")
+local UICorner = Instance.new("UICorner")
+local submit = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local bypassac = Instance.new("TextButton")
+local hide = Instance.new("TextButton")
+local show = Instance.new("TextButton")
+local rgb = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UICorner_4 = Instance.new("UICorner")
+
+LegendsOPReach.Name = "Legend's OP Reach"
+LegendsOPReach.Parent = game.CoreGui
+
+backgroundholderidk.Name = "backgroundholderidk"
+backgroundholderidk.Parent = LegendsOPReach
+backgroundholderidk.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
+backgroundholderidk.BackgroundTransparency = 0.300
+backgroundholderidk.Position = UDim2.new(0.0576036833, 0, 0.322660089, 0)
+backgroundholderidk.Size = UDim2.new(0, 235, 0, 288)
+backgroundholderidk.Active = true
+backgroundholderidk.Visible = true
+
+title.Name = "title"
+title.Parent = backgroundholderidk
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.BorderSizePixel = 0
+title.Size = UDim2.new(0, 235, 0, 38)
+title.Font = Enum.Font.Antique
+title.Text = "Legend's OP Reach"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextSize = 35.000
+
+size.Name = "size"
+size.Parent = backgroundholderidk
+size.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+size.BackgroundTransparency = 0.500
+size.ClipsDescendants = true
+size.Position = UDim2.new(0.200000003, 0, 0.302083343, 0)
+size.Size = UDim2.new(0, 153, 0, 48)
+size.Font = Enum.Font.LuckiestGuy
+size.Text = "AMOUNT"
+size.TextColor3 = Color3.fromRGB(255, 255, 255)
+size.TextSize = 14.000
+size.TextWrapped = true
+
+UICorner.CornerRadius = UDim.new(0.100000001, 0)
+UICorner.Parent = size
+
+submit.Name = "submit"
+submit.Parent = backgroundholderidk
+submit.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+submit.BackgroundTransparency = 0.500
+submit.Position = UDim2.new(0.200000003, 0, 0.607638896, 0)
+submit.Size = UDim2.new(0, 153, 0, 47)
+submit.Font = Enum.Font.LuckiestGuy
+submit.Text = "SUBMIT!"
+submit.TextColor3 = Color3.fromRGB(255, 255, 255)
+submit.TextSize = 14.000
+
+submit.MouseButton1Click:connect(function()
+    _G.Dist = tonumber(size.Text)
+end)
+
+UICorner_2.CornerRadius = UDim.new(0.100000001, 0)
+UICorner_2.Parent = submit
+
+bypassac.Name = "bypassac"
+bypassac.Parent = backgroundholderidk
+bypassac.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+bypassac.BackgroundTransparency = 0.500
+bypassac.Position = UDim2.new(0.370212764, 0, 0.163194478, 0)
+bypassac.Size = UDim2.new(0, 72, 0, 27)
+bypassac.Font = Enum.Font.LuckiestGuy
+bypassac.Text = "Bypass"
+bypassac.TextColor3 = Color3.fromRGB(255, 255, 255)
+bypassac.TextSize = 13.000
+bypassac.MouseButton1Down:connect(function()
+loadstring(game:HttpGet("https://gist.githubusercontent.com/OptioniaI/04ea0dd36d8bee808ad832fbd8371f02/raw/59a21f03c24bf7cc5b87012b52b102566a475519/byp-ac"))()
+end)
+
+title2.Name = "title2"
+title2.Parent = backgroundholderidk
+title2.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
+title2.BackgroundTransparency = 0.300
+title2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+title2.BorderSizePixel = 0
+title2.Position = UDim2.new(0.174468085, 0, 0.819444418, 0)
+title2.Size = UDim2.new(0, 73, 0, 37)
+title2.Font = Enum.Font.LuckiestGuy
+title2.Text = "Visualizer"
+title2.TextColor3 = Color3.fromRGB(255, 255, 255)
+title2.TextSize = 11.000
+
+hide.Name = "hide"
+hide.Parent = backgroundholderidk
+hide.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
+hide.BackgroundTransparency = 0.300
+hide.BorderColor3 = Color3.fromRGB(255, 255, 255)
+hide.Position = UDim2.new(0.540425539, 0, 0.833333313, 0)
+hide.Size = UDim2.new(0, 67, 0, 29)
+hide.Font = Enum.Font.LuckiestGuy
+hide.Text = "Hide"
+hide.TextColor3 = Color3.fromRGB(255, 255, 255)
+hide.TextSize = 14.000
+
+show.Name = "show"
+show.Parent = backgroundholderidk
+show.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
+show.BackgroundTransparency = 0.300
+show.BorderColor3 = Color3.fromRGB(255, 255, 255)
+show.Position = UDim2.new(0.540425539, 0, 0.833333313, 0)
+show.Size = UDim2.new(0, 67, 0, 29)
+show.Visible = false
+show.Font = Enum.Font.LuckiestGuy
+show.Text = "Show"
+show.TextColor3 = Color3.fromRGB(255, 255, 255)
+show.TextSize = 14.000
+
+rgb.Name = "rgb"
+rgb.Parent = backgroundholderidk
+rgb.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
+rgb.BorderColor3 = Color3.fromRGB(255, 255, 255)
+rgb.Position = UDim2.new(0.382978737, 0, 0.489583343, 0)
+rgb.Size = UDim2.new(0, 54, 0, 22)
+rgb.Font = Enum.Font.LuckiestGuy
+rgb.Text = "RGB"
+rgb.TextColor3 = Color3.fromRGB(255, 255, 255)
+rgb.TextSize = 14.000
+
+UICorner_3.CornerRadius = UDim.new(0.100000001, 0)
+UICorner_3.Parent = bypassac
+
+UICorner_4.CornerRadius = UDim.new(0.125, 0)
+UICorner_4.Parent = backgroundholderidk
+
+show.MouseButton1Click:Connect(function()
+    hide.Visible = true
+    show.Visible = false
+    game:GetService("CoreGui").RobloxGui.Modules.Sphere.Visible = true
+end)
+
+hide.MouseButton1Click:Connect(function()
+    hide.Visible = false
+    show.Visible = true
+    game:GetService("CoreGui").RobloxGui.Modules.Sphere.Visible = false
+end)
+
+game:GetService("UserInputService").InputBegan:connect(function(inp,gpe)
+	if gpe then return end
+	if inp.KeyCode == Enum.KeyCode.Comma then
+		LegendsOPReach.Enabled = not LegendsOPReach.Enabled
+	end
+end)
+
+rgb.MouseButton1Click:Connect(function()
+    local SP = game:GetService("CoreGui").RobloxGui.Modules.Sphere
+    _G.RB = true
+    while _G.RB == true do
+        task.wait()
+        SP.Color3 = Color3.fromHSV(tick()%5/5,1,1)
+    end
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+	Title = "Legend's OP Reach";
+	Text = "Loaded!";
+	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
+Duration = 10;
+
+print("Press G to get more reach. (30 best if you want.)")
+print("Press H to lower reach.")
+print("Press F to auto click.")
+
+mt = getrawmetatable(game)
+oldIndex = mt.__index 
+setreadonly(mt, false)
+
+
+mt.__index = function(a,b)
+	if a == "Weld" or b == "Weld" then 
+		return "Part"
+	end
+	return oldIndex(a,b)
+end
+
+
+
+local Player = game.Players.LocalPlayer
+local Char = Player.Character
+local KeyBindHigh = "g"
+local IncreaseAmmount = 1 
+local KeyBindLow = "h"
+local settings = {repeatamount = 2}
+_G.Dist = 15
+_G.SphereActivated = true
+
+local Whitelisted = {}
+
+local function AddUser(plr)
+	table.insert(Whitelisted, plr)		
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Legend's Hub";
+		Text = "Whitelisted " .. tostring(plr) .. "!";
+		Icon = "";
+		Duration = 1;})
+end
+
+local function RemoveUser(plr)
+	for num,user in pairs (Whitelisted) do
+		if user == plr then
+			table.remove(Whitelisted, num)
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Legend's Hub";
+				Text = "Blacklisted " .. tostring(plr) .. "!";
+				Icon = "";
+			Duration = 1;})
+		end
+	end
+end
+
+local function FindPlayer(User)
+	for _,players in pairs(game.Players:GetPlayers()) do
+		if players.Name ~= Player.Name then
+			if User:lower() == (players.Name:lower()):sub(1, #User) then
+				return players
+			end			
+		end
+	end
+end
+
+game:GetService("RunService").Stepped:Connect(function()
+	local Player = game.Players.LocalPlayer
+	local Char = Player.Character
+	pcall(function()
+		for i,v in pairs(game.Players:GetPlayers()) do 
+			if v ~= Player and not table.find(Whitelisted, v.Name) then 
+				if v.Character.Humanoid.Health ~= 0 then 
+					if (v.Character.HumanoidRootPart.Position - Char.HumanoidRootPart.Position).Magnitude <= _G.Dist then 
+						for _,x in pairs(v.Character:GetChildren()) do 
+							if table.find(Whitelisted, v.Name) then return end
+							if x:IsA("Part") then 
+								if v.Character:FindFirstChild('LLeft Aarm') then
+									v.Character:FindFirstChild('LLeft Aarm'):Destroy()						
+								end
+								for i = 1,settings.repeatamount do 
+									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 0)
+									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 1)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end)
+end)
+
+Player:GetMouse().KeyDown:Connect(function(Key)
+	if Key == KeyBindHigh then 
+		_G.Dist = _G.Dist + IncreaseAmmount
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Legend's Reach";
+			Text = "Reach Set To " .. _G.Dist;
+			Icon = "";
+			Duration = 1;})
+	end
+	if Key == KeyBindLow then 
+		_G.Dist = _G.Dist - IncreaseAmmount
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Legend's Reach";
+			Text = "Reach Set To " .. _G.Dist;
+			Icon = "";
+			Duration = 1;})
+	end
+end)
+
+
+
+
+
+
+if _G.SphereActivated then
+	function Update()
+		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(tool)
+			if tool:FindFirstChild("Handle") then
+				Part = Instance.new("Part")
+				Weld = Instance.new("Weld", workspace)
+				Part.Parent = workspace
+				Part.Transparency = 1 
+				Part.CanCollide = false
+				Sphere = Instance.new("SelectionSphere",game:GetService("CoreGui").RobloxGui.Modules)
+				Sphere.Transparency = 0
+				Sphere.SurfaceColor3 = Color3.new(0,0,0)
+				Sphere.Color3 = Color3.fromHSV(tick()%5/5,1,1)
+				Sphere.Transparency = 0.4 
+				Sphere.Name = "Sphere"
+				Sphere.SurfaceTransparency = .8
+				Sphere.Adornee = Part 
+				Part.Massless = true
+				Part.Position = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle.Position
+				Weld.Part0 = Part 
+				Weld.Part1 = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Handle
+				game:GetService("RunService").Stepped:Connect(function()
+					Part.Size = Vector3.new(_G.Dist,_G.Dist,_G.Dist)
+				end)
+			end
+		end)
+	end
+	function UnEquip()
+		game.Players.LocalPlayer.Character.ChildRemoved:Connect(function(int)
+			if int:FindFirstChild("Handle") then
+				for i,v in pairs(game:GetService("CoreGui").RobloxGui.Modules:GetDescendants()) do 
+					if v.Name == 'Sphere' then
+						v:Destroy()
+					end
+				end
+			end
+		end)
+	end
+
+
+
+
+
+
+	Update()
+	UnEquip()
+
+
+	game.Players.LocalPlayer.CharacterAdded:Connect(Update)
+	game.Players.LocalPlayer.CharacterAdded:Connect(UnEquip)    
+end
+
+Player.Chatted:Connect(function(Message)
+	if Message:sub(1, 4) == "!wl " then
+		local plr = Message:sub(5)
+		local User = FindPlayer(plr)
+		if User ~= nil then
+			AddUser(User.Name)			
+		end
+	elseif Message:sub(1, 4) == "!bl " then
+		local plr = Message:sub(5)
+		local User = FindPlayer(plr)
+		if User ~= nil then
+			RemoveUser(User.Name)			
+		end
+	elseif Message == "!c" then
+		table.clear(Whitelisted)
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Legend's Hub";
+			Text = "Cleared whitelist!";
+			Icon = "";
+			Duration = 1;})
+	end
+end)
+
+local AC = false
+local Key = Enum.KeyCode.F
+
+game:GetService("UserInputService").InputBegan:Connect(function(k,g)
+	if not g and k.KeyCode == Key then
+		AC = not AC
+	end
+end)
+
+while wait() do
+	if AC then
+		pcall(function()
+			local Sword = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass'Tool'
+			Sword:Activate()
+			Sword:Activate()
+		end)
+	end
+end
