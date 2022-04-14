@@ -1,3 +1,14 @@
+if LEGENDSOPREACH_LOADED and not _G.LEGENDSOPREACH_DEBUG == true then
+         game.StarterGui:SetCore("SendNotification", {
+         Title = "Legend's OP Reach";
+         Text = "Already Loaded!";
+         Icon = "";
+         Duration = 5;})
+   return
+end
+
+pcall(function() getgenv().LEGENDSOPREACH_LOADED = true end)
+
 local LegendsOPReach = Instance.new("ScreenGui")
 local backgroundholderidk = Instance.new("Frame")
 local title = Instance.new("TextLabel")
@@ -166,7 +177,7 @@ rgb.MouseButton1Click:Connect(function()
         SP.Color3 = Color3.fromHSV(tick()%5/5,1,1)
     end
 end)
-
+wait(0.1)
 game:GetService("StarterGui"):SetCore("SendNotification", { 
 	Title = "Legend's OP Reach";
 	Text = "Loaded!";
