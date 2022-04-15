@@ -188,6 +188,7 @@ print("Press G to get more reach. (30 best if you want.)")
 print("Press H to lower reach.")
 print("Press F to auto click.")
 
+
 mt = getrawmetatable(game)
 oldIndex = mt.__index 
 setreadonly(mt, false)
@@ -201,7 +202,6 @@ mt.__index = function(a,b)
 end
 
 
-
 local Player = game.Players.LocalPlayer
 local Char = Player.Character
 local KeyBindHigh = "g"
@@ -212,6 +212,7 @@ _G.Dist = 15
 _G.SphereActivated = true
 
 local Whitelisted = {}
+local PlayersNamesWithCommands = {}
 
 local function AddUser(plr)
 	table.insert(Whitelisted, plr)		
@@ -222,6 +223,28 @@ local function AddUser(plr)
 		Duration = 1;})
 end
 
+local function WAddUser(plr)
+	table.insert(PlayersNamesWithCommands, plr)		
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Legend's Hub";
+		Text = "Gave " .. tostring(plr) .. " whitelist and blacklist commands!";
+		Icon = "";
+		Duration = 1;})
+end
+
+local function WRemoveUser(plr)
+	for num,user in pairs (PlayersNamesWithCommands) do
+		if user == plr then
+			table.remove(PlayersNamesWithCommands, num)
+			game.StarterGui:SetCore("SendNotification", {
+				Title = "Legend's Hub";
+				Text = "Blacklisted " .. tostring(plr) .. " from using commands.";
+				Icon = "";
+				Duration = 1;})
+		end
+	end
+end
+
 local function RemoveUser(plr)
 	for num,user in pairs (Whitelisted) do
 		if user == plr then
@@ -230,7 +253,7 @@ local function RemoveUser(plr)
 				Title = "Legend's Hub";
 				Text = "Blacklisted " .. tostring(plr) .. "!";
 				Icon = "";
-			Duration = 1;})
+				Duration = 1;})
 		end
 	end
 end
@@ -250,7 +273,7 @@ game:GetService("RunService").Stepped:Connect(function()
 	local Char = Player.Character
 	pcall(function()
 		for i,v in pairs(game.Players:GetPlayers()) do 
-			if v ~= Player and not table.find(Whitelisted, v.Name) then 
+			if v ~= Player and not table.find(Whitelisted, v.Name) and not table.find(PlayersNamesWithCommands, v.Name) then 
 				if v.Character.Humanoid.Health ~= 0 then 
 					if (v.Character.HumanoidRootPart.Position - Char.HumanoidRootPart.Position).Magnitude <= _G.Dist then 
 						for _,x in pairs(v.Character:GetChildren()) do 
@@ -348,27 +371,61 @@ if _G.SphereActivated then
 	game.Players.LocalPlayer.CharacterAdded:Connect(UnEquip)    
 end
 
-Player.Chatted:Connect(function(Message)
-	if Message:sub(1, 4) == "!wl " then
-		local plr = Message:sub(5)
-		local User = FindPlayer(plr)
-		if User ~= nil then
-			AddUser(User.Name)			
+local function AddAndRemove(plr)
+	print(plr)
+	plr.Chatted:Connect(function(Message)
+		if plr.Name == Player.Name or table.find(PlayersNamesWithCommands, plr.Name) then
+			if Message:sub(1, 4) == "!wl " then
+				print(plr.Name)
+				local plr = Message:sub(5)
+				local User = FindPlayer(plr)
+				if User ~= nil and User.Name ~= Player.Name and User.Name ~= plr.Name and not table.find(PlayersNamesWithCommands, plr.Name) then
+					AddUser(User.Name)			
+				end
+			elseif Message:sub(1, 4) == "!bl " then
+				print(plr.Name)
+				local plr = Message:sub(5)
+				local User = FindPlayer(plr)
+				if User ~= nil and User.Name ~= Player.Name and User.Name ~= plr.Name and not table.find(PlayersNamesWithCommands, plr.Name) then
+					RemoveUser(User.Name)			
+				end
+			elseif Message == "!c" then
+				if plr.Name == Player.Name then
+					table.clear(Whitelisted)
+					table.clear(PlayersNamesWithCommands)
+						game.StarterGui:SetCore("SendNotification", {
+						Title = "Legend's Hub";
+						Text = "Cleared whitelist!";
+						Icon = "";
+						Duration = 1;})
+				end
+			elseif Message:sub(1, 3) == "!p " then
+				if plr.Name == Player.Name then
+					local plr = Message:sub(4)
+					local User = FindPlayer(plr)
+					if User ~= nil and User.Name ~= Player.Name then
+						WAddUser(User.Name)			
+					end
+				end
+			elseif Message:sub(1, 5) == "!unp " then
+				if plr.Name == Player.Name then
+				local plr = Message:sub(6)
+				local User = FindPlayer(plr)
+				if User ~= nil and User.Name ~= Player.Name then
+					WRemoveUser(User.Name)			
+					end
+				end
+			end			
 		end
-	elseif Message:sub(1, 4) == "!bl " then
-		local plr = Message:sub(5)
-		local User = FindPlayer(plr)
-		if User ~= nil then
-			RemoveUser(User.Name)			
-		end
-	elseif Message == "!c" then
-		table.clear(Whitelisted)
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Legend's Hub";
-			Text = "Cleared whitelist!";
-			Icon = "";
-			Duration = 1;})
-	end
+	end)
+end
+
+for _,p in pairs (game.Players:GetPlayers()) do
+	AddAndRemove(p)
+end
+
+game.Players.PlayerAdded:Connect(function(plr)
+	AddAndRemove(plr)
 end)
 
 local AC = false
