@@ -17,7 +17,6 @@ local size = Instance.new("TextBox")
 local UICorner = Instance.new("UICorner")
 local submit = Instance.new("TextButton")
 local UICorner_2 = Instance.new("UICorner")
-local bypassac = Instance.new("TextButton")
 local hide = Instance.new("TextButton")
 local show = Instance.new("TextButton")
 local rgb = Instance.new("TextButton")
@@ -81,20 +80,6 @@ end)
 UICorner_2.CornerRadius = UDim.new(0.100000001, 0)
 UICorner_2.Parent = submit
 
-bypassac.Name = "bypassac"
-bypassac.Parent = backgroundholderidk
-bypassac.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-bypassac.BackgroundTransparency = 0.500
-bypassac.Position = UDim2.new(0.370212764, 0, 0.163194478, 0)
-bypassac.Size = UDim2.new(0, 72, 0, 27)
-bypassac.Font = Enum.Font.LuckiestGuy
-bypassac.Text = "Bypass"
-bypassac.TextColor3 = Color3.fromRGB(255, 255, 255)
-bypassac.TextSize = 13.000
-bypassac.MouseButton1Down:connect(function()
-loadstring(game:HttpGet("https://gist.githubusercontent.com/OptioniaI/04ea0dd36d8bee808ad832fbd8371f02/raw/59a21f03c24bf7cc5b87012b52b102566a475519/byp-ac"))()
-end)
-
 title2.Name = "title2"
 title2.Parent = backgroundholderidk
 title2.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
@@ -143,9 +128,6 @@ rgb.Font = Enum.Font.LuckiestGuy
 rgb.Text = "RGB"
 rgb.TextColor3 = Color3.fromRGB(255, 255, 255)
 rgb.TextSize = 14.000
-
-UICorner_3.CornerRadius = UDim.new(0.100000001, 0)
-UICorner_3.Parent = bypassac
 
 UICorner_4.CornerRadius = UDim.new(0.125, 0)
 UICorner_4.Parent = backgroundholderidk
