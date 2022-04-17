@@ -84,8 +84,8 @@ title2.Name = "title2"
 title2.Parent = backgroundholderidk
 title2.BackgroundColor3 = Color3.fromRGB(81, 82, 82)
 title2.BackgroundTransparency = 0.300
-title2.BorderColor3 = Color3.fromRGB(27, 42, 53)
-title2.BorderSizePixel = 0
+title2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+title2.BorderSizePixel = 1
 title2.Position = UDim2.new(0.174468085, 0, 0.819444418, 0)
 title2.Size = UDim2.new(0, 73, 0, 37)
 title2.Font = Enum.Font.LuckiestGuy
@@ -152,11 +152,11 @@ game:GetService("UserInputService").InputBegan:connect(function(inp,gpe)
 end)
 
 rgb.MouseButton1Click:Connect(function()
-    local SP = game:GetService("CoreGui").RobloxGui.Modules.Sphere
+    local SP = game:GetService'CoreGui'.RobloxGui.Modules:FindFirstChildOfClass'SelectionSphere'
     _G.RB = true
     while _G.RB == true do
         task.wait()
-        SP.Color3 = Color3.fromHSV(tick()%5/5,1,1)
+        SP.SurfaceColor3 = Color3.fromHSV(tick()%5/5,1,1)
     end
 end)
 wait(0.1)
@@ -267,6 +267,8 @@ game:GetService("RunService").Stepped:Connect(function()
 								for i = 1,settings.repeatamount do 
 									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 0)
 									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 1)
+                                    firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 0)
+									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 1)
 								end
 							end
 						end
@@ -311,10 +313,9 @@ if _G.SphereActivated then
 				Part.Transparency = 1 
 				Part.CanCollide = false
 				Sphere = Instance.new("SelectionSphere",game:GetService("CoreGui").RobloxGui.Modules)
-				Sphere.Transparency = 0
+				Sphere.Transparency = 1
 				Sphere.SurfaceColor3 = Color3.new(0,0,0)
-				Sphere.Color3 = Color3.fromHSV(tick()%5/5,1,1)
-				Sphere.Transparency = 0.4 
+				Sphere.Transparency = 1
 				Sphere.Name = "Sphere"
 				Sphere.SurfaceTransparency = .8
 				Sphere.Adornee = Part 
@@ -340,14 +341,8 @@ if _G.SphereActivated then
 		end)
 	end
 
-
-
-
-
-
 	Update()
 	UnEquip()
-
 
 	game.Players.LocalPlayer.CharacterAdded:Connect(Update)
 	game.Players.LocalPlayer.CharacterAdded:Connect(UnEquip)    
