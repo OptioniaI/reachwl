@@ -279,30 +279,6 @@ game:GetService("RunService").Stepped:Connect(function()
 	end)
 end)
 
-Player:GetMouse().KeyDown:Connect(function(Key)
-	if Key == KeyBindHigh then 
-		_G.Dist = _G.Dist + IncreaseAmmount
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Legend's Reach";
-			Text = "Reach Set To " .. _G.Dist;
-			Icon = "";
-			Duration = 1;})
-	end
-	if Key == KeyBindLow then 
-		_G.Dist = _G.Dist - IncreaseAmmount
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Legend's Reach";
-			Text = "Reach Set To " .. _G.Dist;
-			Icon = "";
-			Duration = 1;})
-	end
-end)
-
-
-
-
-
-
 if _G.SphereActivated then
 	function Update()
 		game.Players.LocalPlayer.Character.ChildAdded:Connect(function(tool)
