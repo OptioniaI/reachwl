@@ -166,9 +166,9 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 	Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
 Duration = 10;
 
-print("Press G to get more reach. (30 best if you want.)")
-print("Press H to lower reach.")
-print("Press F to auto click.")
+warn("   ")
+warn("Press F to auto click.")
+warn("   ")
 
 
 mt = getrawmetatable(game)
