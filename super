@@ -345,19 +345,19 @@ end
 local function AddAndRemove(plr)
 	plr.Chatted:Connect(function(Message)
 		if plr.Name == Player.Name or table.find(Permed, plr.Name) then
-			if Message:sub(1, 4) == ".wl " then
+			if Message:sub(1, 4) == "!wl " then
 				local plr = Message:sub(5)
 				local User = FindPlayer(plr)
 				if User ~= nil and User.Name ~= Player.Name and User.Name ~= plr.Name and not table.find(Permed, plr.Name) then
 					AddUser(User.Name)
 				end
-			elseif Message:sub(1, 4) == ".bl " then
+			elseif Message:sub(1, 4) == "!bl " then
 				local plr = Message:sub(5)
 				local User = FindPlayer(plr)
 				if User ~= nil and User.Name ~= Player.Name and User.Name ~= plr.Name and not table.find(Permed, plr.Name) then
 					RemoveUser(User.Name)
 				end
-			elseif Message == ".c" or Message == ".clear" then
+			elseif Message == "!c" or Message == "!clear" then
 				if plr.Name == Player.Name then
 					table.clear(wl)
 					table.clear(Permed)
@@ -367,7 +367,7 @@ local function AddAndRemove(plr)
 						Icon = "rbxassetid://5712067572";
 						Duration = 1;})
 				end
-			elseif Message:sub(1, 3) == ".p " then
+			elseif Message:sub(1, 3) == "!p " then
 				if plr.Name == Player.Name then
 					local plr = Message:sub(4)
 					local User = FindPlayer(plr)
@@ -375,7 +375,7 @@ local function AddAndRemove(plr)
 						WAddUser(User.Name)
 					end
 				end
-			elseif Message:sub(1, 5) == ".unp " then
+			elseif Message:sub(1, 5) == "!unp " then
 				if plr.Name == Player.Name then
 				local plr = Message:sub(6)
 				local User = FindPlayer(plr)
