@@ -179,7 +179,7 @@ end
 local Cam = game.Workspace.Camera
 local Player = game.Players.LocalPlayer
 local Char = Player.Character
-local ampset = {amp = 15}
+_G.AMPSET = 10
 _G.Dist = 30
 _G.SphereActivated = true
 
@@ -254,7 +254,7 @@ game:GetService("RunService").Stepped:Connect(function()
 								if v.Character:FindFirstChild('LLeft Aarm') then
 									v.Character:FindFirstChild('LLeft Aarm'):Destroy()						
 								end
-								for i = 1,ampset.amp do 
+								for i = 1,_G.AMPSET do 
 									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 0)
 									firetouchinterest(Char:FindFirstChildOfClass("Tool").Handle, x, 1)
 								end
